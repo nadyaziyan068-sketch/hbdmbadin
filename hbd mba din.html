@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Mba Din!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  --bg:#eaf4ff; --bg2:#cfe6ff; --ink:#0f2a55; --soft:#44628f;
+  --pink:#2f6df6; --coral:#5aa2ff; --sun:#ffc23d; --mint:#38c6e8; --plate:#ffffff;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1b3d; --bg2:#14306b; --ink:#f0f6ff; --soft:#a9c3ec;
+    --pink:#4f8ef7; --coral:#7bb6ff; --sun:#ffd166; --mint:#6fe0f5; --plate:#1b3a7a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1b3d; --bg2:#14306b; --ink:#f0f6ff; --soft:#a9c3ec;
+  --pink:#4f8ef7; --coral:#7bb6ff; --sun:#ffd166; --mint:#6fe0f5; --plate:#1b3a7a;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;min-height:100%;color:var(--ink);background:var(--bg);
+  background-image:radial-gradient(ellipse at 50% 0%,var(--bg2),transparent 70%);
+  font-family:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  text-align:center;overflow-x:hidden;
+}
+main{max-width:640px;margin:0 auto;padding:2.5rem 1.25rem 4rem;position:relative;z-index:2}
+h1{
+  font-family:"Bagel Fat One","Trebuchet MS",system-ui,sans-serif;font-weight:400;
+  font-size:clamp(2.8rem,13vw,5.2rem);line-height:.95;margin:0 0 1rem;
+  color:var(--pink);letter-spacing:.01em;
+  text-shadow:3px 3px 0 var(--sun),6px 6px 0 color-mix(in srgb,var(--sun) 40%,transparent);
+  animation:pop .9s cubic-bezier(.2,1.4,.4,1) both;
+}
+.sub{font-size:1.1rem;line-height:1.6;color:var(--soft);max-width:30ch;margin:0 auto}
+
+/* kue */
+.cake{position:relative;width:260px;height:240px;margin:2.5rem auto 1.25rem}
+.plate{position:absolute;left:-10px;right:-10px;bottom:0;height:16px;border-radius:50%;background:var(--plate);box-shadow:0 6px 0 rgba(0,0,0,.12)}
+.tier{position:absolute;left:50%;transform:translateX(-50%);border-radius:14px 14px 8px 8px}
+.t1{width:250px;height:84px;bottom:12px;background:var(--coral)}
+.t2{width:170px;height:66px;bottom:92px;background:var(--pink)}
+.tier::before{ /* lelehan icing */
+  content:"";position:absolute;left:0;right:0;top:0;height:20px;border-radius:14px 14px 0 0;
+  background:radial-gradient(circle at 12px 100%,#fff 11px,transparent 12px) 0 0/34px 100% repeat-x,#fff;
+  opacity:.92;
+}
+.dots{position:absolute;left:14px;right:14px;bottom:12px;height:8px;
+  background:radial-gradient(circle,var(--sun) 3px,transparent 4px) 0 0/22px 8px repeat-x}
+.candles{position:absolute;left:50%;transform:translateX(-50%);width:140px;bottom:156px;height:60px;display:flex;justify-content:space-between;align-items:flex-end}
+.candle{
+  position:relative;width:14px;height:36px;padding:0;border:0;cursor:pointer;border-radius:3px;
+  background:repeating-linear-gradient(135deg,#fff 0 6px,var(--mint) 6px 12px);
+}
+.candle::after{content:"";position:absolute;inset:-26px -12px -4px} /* area ketuk lebih besar */
+.candle:focus-visible{outline:3px solid var(--sun);outline-offset:6px}
+.flame{
+  position:absolute;left:50%;top:-22px;width:12px;height:20px;margin-left:-6px;pointer-events:none;
+  border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+  background:radial-gradient(ellipse at 50% 70%,#fff6c9 0 25%,var(--sun) 55%,#ff7a2f 100%);
+  box-shadow:0 0 16px 4px color-mix(in srgb,var(--sun) 70%,transparent);
+  transform-origin:50% 100%;animation:flick .5s ease-in-out infinite alternate;
+  transition:opacity .25s,transform .25s;
+}
+.candle:nth-child(2n) .flame{animation-delay:.15s}
+.candle:nth-child(3n) .flame{animation-delay:.3s}
+.candle.out .flame{opacity:0;transform:scale(.2) translateY(6px);animation:none}
+
+.actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+button.btn{
+  font:700 1rem/1 "Nunito",system-ui,sans-serif;padding:.9rem 1.5rem;border-radius:999px;border:2px solid var(--pink);
+  background:var(--pink);color:#fff;cursor:pointer;transition:transform .15s;
+}
+button.btn.alt{background:transparent;color:var(--pink)}
+button.btn:active{transform:scale(.96)}
+button.btn:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.hint{margin:1rem 0 0;font-size:.95rem;color:var(--soft)}
+
+.wish{
+  margin:2.5rem auto 0;padding:1.75rem 1.5rem;max-width:460px;border-radius:22px;
+  background:var(--plate);color:var(--ink);text-align:left;
+  box-shadow:6px 6px 0 var(--sun);
+}
+.wish[hidden]{display:none}
+.wish.show{animation:pop .7s cubic-bezier(.2,1.4,.4,1) both}
+.wish h2{font-family:"Bagel Fat One","Trebuchet MS",system-ui,sans-serif;font-weight:400;font-size:1.6rem;margin:0 0 .75rem;color:var(--pink)}
+.wish p{margin:.5rem 0;line-height:1.65}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+
+@keyframes flick{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.92,1.08) rotate(3deg)}}
+@keyframes pop{from{opacity:0;transform:scale(.8) translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+  h1,.wish.show{animation:none}
+  .flame{animation:none}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>Happy Birthday,<br>Mba Din!</h1>
+  <p class="sub">Selamat ulang tahun! Semoga hari ini penuh tawa, kue, dan kabar baik.</p>
+
+  <div class="cake" aria-label="Kue ulang tahun dengan lima lilin">
+    <div class="candles" id="candles">
+      <button class="candle" aria-label="Tiup lilin 1"><span class="flame"></span></button>
+      <button class="candle" aria-label="Tiup lilin 2"><span class="flame"></span></button>
+      <button class="candle" aria-label="Tiup lilin 3"><span class="flame"></span></button>
+      <button class="candle" aria-label="Tiup lilin 4"><span class="flame"></span></button>
+      <button class="candle" aria-label="Tiup lilin 5"><span class="flame"></span></button>
+    </div>
+    <div class="tier t2"><div class="dots"></div></div>
+    <div class="tier t1"><div class="dots"></div></div>
+    <div class="plate"></div>
+  </div>
+
+  <div class="actions">
+    <button class="btn" id="blow">Tiup semua lilin</button>
+    <button class="btn alt" id="relight">Nyalakan lagi</button>
+  </div>
+  <p class="hint" id="hint">Buat permintaan dulu, lalu ketuk lilinnya satu per satu.</p>
+
+  <section class="wish" id="wish" hidden>
+    <h2>Doa untuk Mba Din</h2>
+    <p>Semoga panjang umur dan selalu sehat, di umur yang baru ini.</p>
+    <p>Semoga rezekinya lancar dan semua rencana tahun ini satu per satu terwujud.</p>
+    <p>Semoga selalu dikelilingi orang-orang baik yang bikin hari-harinya ringan.</p>
+    <p>Terima kasih sudah jadi Mba yang selalu ada. Selamat bertambah usia!</p>
+  </section>
+</main>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<script>
+(function(){
+  var candles = Array.prototype.slice.call(document.querySelectorAll('.candle'));
+  var wish = document.getElementById('wish');
+  var hint = document.getElementById('hint');
+  var cv = document.getElementById('fx'), ctx = cv.getContext('2d');
+  var parts = [], running = false, celebrated = false;
+  var colors = ['#2f6df6','#ffc23d','#38c6e8','#5aa2ff','#8d9bff','#ffffff'];
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function size(){ cv.width = innerWidth; cv.height = innerHeight; }
+  size(); addEventListener('resize', size);
+
+  function burst(x, y, n){
+    for (var i = 0; i < n; i++){
+      var a = Math.random() * Math.PI * 2, s = 4 + Math.random() * 9;
+      parts.push({x:x, y:y, vx:Math.cos(a)*s, vy:Math.sin(a)*s - 6, w:6+Math.random()*6, h:4+Math.random()*5,
+        r:Math.random()*6, vr:(Math.random()-.5)*.4, c:colors[(Math.random()*colors.length)|0], life:120+Math.random()*60});
+    }
+    if (!running){ running = true; requestAnimationFrame(tick); }
+  }
+  function tick(){
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    parts = parts.filter(function(p){ return p.life > 0 && p.y < cv.height + 20; });
+    parts.forEach(function(p){
+      p.vy += .25; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr; p.life--;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+      ctx.fillStyle = p.c; ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h); ctx.restore();
+    });
+    if (parts.length) requestAnimationFrame(tick); else { running = false; ctx.clearRect(0,0,cv.width,cv.height); }
+  }
+
+  function check(){
+    var left = candles.filter(function(c){ return !c.classList.contains('out'); }).length;
+    if (left === 0 && !celebrated){
+      celebrated = true;
+      hint.textContent = '';
+      wish.hidden = false; wish.classList.remove('show'); void wish.offsetWidth; wish.classList.add('show');
+      if (!reduce){
+        burst(innerWidth * .25, innerHeight * .45, 70);
+        burst(innerWidth * .75, innerHeight * .45, 70);
+        setTimeout(function(){ burst(innerWidth * .5, innerHeight * .3, 90); }, 350);
+      }
+      setTimeout(function(){ wish.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'}); }, 500);
+    } else if (left > 0 && left < candles.length){
+      hint.textContent = 'Tinggal ' + left + ' lilin lagi.';
+    }
+  }
+
+  candles.forEach(function(c){
+    c.addEventListener('click', function(){ c.classList.add('out'); check(); });
+  });
+
+  document.getElementById('blow').addEventListener('click', function(){
+    candles.forEach(function(c, i){
+      setTimeout(function(){ c.classList.add('out'); if (i === candles.length - 1) check(); }, i * 130);
+    });
+  });
+
+  document.getElementById('relight').addEventListener('click', function(){
+    candles.forEach(function(c){ c.classList.remove('out'); });
+    celebrated = false; wish.hidden = true;
+    hint.textContent = 'Buat permintaan dulu, lalu ketuk lilinnya satu per satu.';
+  });
+})();
+</script>
+</body>
+</html>
